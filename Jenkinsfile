@@ -1,4 +1,3 @@
-
 DOCKER_IMAGE_NAME = "lantossl/train-schedule"
 
 pipeline {
@@ -55,3 +54,5 @@ pipeline {
                 }
             }
         }
+    }
+}
