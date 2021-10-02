@@ -1,3 +1,6 @@
+
+DOCKER_IMAGE_NAME = "lantossl/train-schedule"
+
 pipeline {
     agent any
     environment {
@@ -45,8 +48,10 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                //implement Kubernetes deployment here
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'train-schedule-kube.yml',
+                    enableConfigSubstitution: true
+                }
             }
         }
-    }
-}
