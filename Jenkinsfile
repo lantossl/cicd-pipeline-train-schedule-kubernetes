@@ -1,10 +1,8 @@
-DOCKER_IMAGE_NAME = "lantossl/train-schedule"
-
 pipeline {
     agent any
     environment {
         //be sure to replace "willbla" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "willbla/train-schedule"
+        DOCKER_IMAGE_NAME = "lantossl/train-schedule"
     }
     stages {
         stage('Build') {
@@ -51,7 +49,7 @@ pipeline {
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
-                }
+                )
             }
         }
     }
